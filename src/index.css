@@ -49,12 +49,16 @@ input:focus{
 #cancel{
   background-color: transparent;
 }
-#cancel:hover{
+#cancel:hover, #emoji:hover{
   background-color: #7d7a7a;
 }
-
+.buttons{
+  display: flex;
+  align-items: start;
+  justify-content: space-between;
+  width:53%;
+}
 button {
-  padding: 5px;
   background-color:#3c8dcf ;
   margin:10px;
   color:#fff;
@@ -92,4 +96,11 @@ button:hover {
 }
 #vote-wrapper span{
   margin: 0 10px;
+}
+#emoji{
+  background-color: transparent;
+  padding:10px;
+  margin:10px;
+  text-align: center;
+  font-size: 1.2rem;
 }

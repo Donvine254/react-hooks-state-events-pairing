@@ -53,20 +53,33 @@ function Comments({ video }) {
           placeholder="Type your comment here....."
           onFocus={toggleButtonsClass}></input>
         <br></br>
-        <button
-          id="cancel"
-          type="button"
-          className={`buttons-container ${isInputFocused ? "show" : ""}`}
-          onClick={toggleButtonsClass}>
-          cancel
-        </button>
-        <button
-          id="comment"
-          type="submit"
-          className={`buttons-container ${isInputFocused ? "show" : ""}`}
-          onClick={handleComment}>
-          comment
-        </button>
+        <div class="buttons">
+          <div>
+            {" "}
+            <span
+              id="emoji"
+              className={`buttons-container ${isInputFocused ? "show" : ""}`}>
+              😄
+            </span>
+          </div>
+          <div>
+            {" "}
+            <button
+              id="cancel"
+              type="button"
+              className={`buttons-container ${isInputFocused ? "show" : ""}`}
+              onClick={toggleButtonsClass}>
+              cancel
+            </button>
+            <button
+              id="comment"
+              type="submit"
+              className={`buttons-container ${isInputFocused ? "show" : ""}`}
+              onClick={handleComment}>
+              comment
+            </button>
+          </div>
+        </div>
       </form>
       {comments ? comment : null}
     </div>
