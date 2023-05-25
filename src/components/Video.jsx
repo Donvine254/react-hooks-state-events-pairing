@@ -1,14 +1,19 @@
 import React, { useState } from "react";
 import Comments from "./Comments";
 
+
 function Video({ video }) {
   const [likes, setLikes] = useState(video.upvotes);
   const [dislikes, setDislikes] = useState(video.downvotes);
+  const [commentsHidden, setCommentsHidden] = useState(false);
   function handleLikes() {
     setLikes((prevLikes) => prevLikes + 1);
   }
   function handleDislikes() {
     setDislikes((prevDislikes) => prevDislikes + 1);
+  }
+  function hideComments() {
+    setCommentsHidden(!commentsHidden)
   }
   
   return (
@@ -31,8 +36,14 @@ function Video({ video }) {
       <button id="dislikes" onClick={handleDislikes}>
         {dislikes} 👎
       </button>
-      <br></br>
-      <Comments video={video}/>
+      <br/>
+      <button onClick={hideComments}>
+        {commentsHidden ? "Hide Comments" : "Show Comments"}
+      </button>
+      <hr/>
+      <h2>{video.comments.length} Comments</h2>
+     {!commentsHidden ?  <Comments video={video}/> : null}
+     <br style={{margin:"40px"}}></br>
     </>
   );
 }

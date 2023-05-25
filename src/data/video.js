@@ -9,17 +9,17 @@ const video = {
   comments: [
     {
       id: 1,
-      user: "Don the Handsome Boy",
+      user: "Don the Handsome Boy 🇰🇪",
       comment: "Its not often that you get to experience the same library for the first time twice. Hats off to the React team for their great work",
     },
     {
       id: 2,
-      user: "The Mandalorian",
+      user: "The React Nerd 🤓",
       comment: "Dan Abramov is such a tease. Great presentation though. Thanks!",
     },
     {
       id: 3,
-      user:"Tom St James",
+      user:"Not a Bot 🤖",
       comment:"I love watching dan speak, he clearly loves talking about react and he can explain new features so succinctly. the master."
     }
   ],

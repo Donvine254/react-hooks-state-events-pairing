@@ -1,5 +1,8 @@
 import React, { useState } from "react";
 import { ImArrowDown, ImArrowUp } from "react-icons/im";
+import {FcLike} from "react-icons/fc"
+import {FaRegCommentAlt} from "react-icons/fa"
+import{FiShare} from "react-icons/fi"
 
 function Comments({ video }) {
   const [commentVotes, setCommentVotes] = useState({});
@@ -21,8 +24,8 @@ function Comments({ video }) {
     return (
       <div key={commentId}>
         <h4 className="user-comment">@ {comment.user}</h4>
-        <div>
-          <p>{comment.comment}</p>
+        <p>{comment.comment}</p>
+        <div id="icons">
           <div id="vote-wrapper">
             <ImArrowUp id="upvote" onClick={() => handleVote(commentId, 1)} />
             <span>{votes}</span>
@@ -31,21 +34,16 @@ function Comments({ video }) {
               onClick={() => (votes > 0 ? handleVote(commentId, -1) : null)}
             />
           </div>
+          <FcLike id="like-icon"/>
+          <FaRegCommentAlt id="reply"/>
+          <span id="share"><FiShare/> Share</span>
         </div>
       </div>
     );
   });
-  const [comments, setComments] = useState(comment);
-  function hideComments() {
-    setComments(comments ? null : comment);
-  }
+
   return (
     <div id="comments">
-      <button onClick={hideComments}>
-        {comments ? "Hide Comments" : "Show Comments"}
-      </button>
-      <hr></hr>
-      <h2>{video.comments.length} Comments</h2>
       <form>
         <h3>Add a Comment </h3>
         <input
@@ -81,7 +79,7 @@ function Comments({ video }) {
           </div>
         </div>
       </form>
-      {comments ? comment : null}
+      {comment}
     </div>
   );
 }
