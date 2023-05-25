@@ -10,13 +10,18 @@ const video = {
     {
       id: 1,
       user: "Don the Handsome Boy",
-      comment: "This video is really detailed and as a beginner i have learned a lot.Thanks!",
+      comment: "Its not often that you get to experience the same library for the first time twice. Hats off to the React team for their great work",
     },
     {
       id: 2,
       user: "The Mandalorian",
-      comment: "Wow, What a great tutorial! I am beyond impressed to learn",
+      comment: "Dan Abramov is such a tease. Great presentation though. Thanks!",
     },
+    {
+      id: 3,
+      user:"Tom St James",
+      comment:"I love watching dan speak, he clearly loves talking about react and he can explain new features so succinctly. the master."
+    }
   ],
 };
 

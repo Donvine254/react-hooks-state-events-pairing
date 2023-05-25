@@ -15,7 +15,7 @@ function Comments({ video }) {
     const votes = commentVotes[commentId] || 0; //Sets the default vote count to zero if no votes are found in the commentVotes array
     return (
       <div key={commentId}>
-        <h4>{comment.user}</h4>
+        <h4>@ {comment.user}</h4>
         <p>
           {comment.comment}{" "}
           <button
@@ -26,7 +26,7 @@ function Comments({ video }) {
           </button>
           <button
             id="downvote"
-            onClick={() => handleVote(commentId, -1)}
+            onClick={() => votes> 0 ?handleVote(commentId, -1):null}
             style={voteBtnStyle}>
             &#8681;
           </button>
