@@ -1,8 +1,13 @@
 import React, { useState } from "react";
-import { ImArrowDown, ImArrowUp } from 'react-icons/im';
+import { ImArrowDown, ImArrowUp } from "react-icons/im";
 
 function Comments({ video }) {
   const [commentVotes, setCommentVotes] = useState({});
+  const [isInputFocused, setIsInputFocused] = useState(false);
+
+  const toggleButtonsClass = () => {
+    setIsInputFocused((prevFocused) => !prevFocused);
+  };
   const handleVote = (commentId, increment) => {
     setCommentVotes((prevVotes) => ({
       ...prevVotes,
@@ -19,10 +24,12 @@ function Comments({ video }) {
         <div>
           <p>{comment.comment}</p>
           <div id="vote-wrapper">
-            <ImArrowUp id="upvote" onClick={() => handleVote(commentId, 1)}/>
-          <span>{votes}</span>
-            <ImArrowDown id="downvote"
-            onClick={() => (votes > 0 ? handleVote(commentId, -1) : null)}/>
+            <ImArrowUp id="upvote" onClick={() => handleVote(commentId, 1)} />
+            <span>{votes}</span>
+            <ImArrowDown
+              id="downvote"
+              onClick={() => (votes > 0 ? handleVote(commentId, -1) : null)}
+            />
           </div>
         </div>
       </div>
@@ -43,13 +50,31 @@ function Comments({ video }) {
         <h3>Add a Comment </h3>
         <input
           type="text"
-          name="addcomment"
-          placeholder="Type your comment here....."></input>
-        <button type="submit">Submit</button>
+          placeholder="Type your comment here....."
+          onFocus={toggleButtonsClass}></input>
+        <br></br>
+        <button
+          id="cancel"
+          type="button"
+          className={`buttons-container ${isInputFocused ? "show" : ""}`}
+          onClick={toggleButtonsClass}>
+          cancel
+        </button>
+        <button
+          id="comment"
+          type="submit"
+          className={`buttons-container ${isInputFocused ? "show" : ""}`}
+          onClick={handleComment}>
+          comment
+        </button>
       </form>
       {comments ? comment : null}
     </div>
   );
+}
+function handleComment(e) {
+  e.preventDefault();
+  alert("Did you finish watching the video before commenting?");
 }
 
 export default Comments;

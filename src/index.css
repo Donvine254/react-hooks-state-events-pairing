@@ -17,7 +17,7 @@ body {
   text-align: center;
 }
 #comments{
-  margin: 0 20px;
+  margin: auto 15%;
   display: block;
   align-items: right;
   text-align: left;
@@ -31,6 +31,28 @@ input {
   width: 50%;
   background-color:inherit;
 }
+input:focus{
+  #cancel, #comment{
+    display:block;
+  }
+}
+.buttons-container{
+  display: none;
+  align-items: right;
+  background-color: #7d7a7a;
+  border-radius: 20px;
+  font-size:normal;
+}
+.buttons-container.show{
+  display: inline-block;
+}
+#cancel{
+  background-color: transparent;
+}
+#cancel:hover{
+  background-color: #7d7a7a;
+}
+
 button {
   padding: 5px;
   background-color:#3c8dcf ;
