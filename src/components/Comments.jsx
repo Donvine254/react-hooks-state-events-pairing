@@ -20,7 +20,7 @@ function Comments({ video }) {
     const votes = commentVotes[commentId] || 0; //Sets the default vote count to zero if no votes are found in the commentVotes array
     return (
       <div key={commentId}>
-        <h4>@ {comment.user}</h4>
+        <h4 className="user-comment">@ {comment.user}</h4>
         <div>
           <p>{comment.comment}</p>
           <div id="vote-wrapper">
