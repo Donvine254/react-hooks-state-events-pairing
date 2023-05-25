@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { buttonStyle } from "./Video";
+import { ImArrowDown, ImArrowUp } from 'react-icons/im';
 
 function Comments({ video }) {
   const [commentVotes, setCommentVotes] = useState({});
@@ -16,21 +16,15 @@ function Comments({ video }) {
     return (
       <div key={commentId}>
         <h4>@ {comment.user}</h4>
-        <p>
-          {comment.comment}{" "}
-          <button
-            id="upvote"
-            onClick={() => handleVote(commentId, 1)}
-            style={voteBtnStyle}>
-            &#8679; {votes}
-          </button>
-          <button
-            id="downvote"
-            onClick={() => votes> 0 ?handleVote(commentId, -1):null}
-            style={voteBtnStyle}>
-            &#8681;
-          </button>
-        </p>
+        <div>
+          <p>{comment.comment}</p>
+          <div id="vote-wrapper">
+            <ImArrowUp id="upvote" onClick={() => handleVote(commentId, 1)}/>
+          <span>{votes}</span>
+            <ImArrowDown id="downvote"
+            onClick={() => (votes > 0 ? handleVote(commentId, -1) : null)}/>
+          </div>
+        </div>
       </div>
     );
   });
@@ -39,22 +33,23 @@ function Comments({ video }) {
     setComments(comments ? null : comment);
   }
   return (
-    <>
-      <button style={buttonStyle} onClick={hideComments}>
+    <div id="comments">
+      <button onClick={hideComments}>
         {comments ? "Hide Comments" : "Show Comments"}
       </button>
       <hr></hr>
       <h2>{video.comments.length} Comments</h2>
+      <form>
+        <h3>Add a Comment </h3>
+        <input
+          type="text"
+          name="addcomment"
+          placeholder="Type your comment here....."></input>
+        <button type="submit">Submit</button>
+      </form>
       {comments ? comment : null}
-    </>
+    </div>
   );
 }
-const voteBtnStyle = {
-  margin: "0px",
-  border: "none",
-  fontSize: "20px",
-  padding: "10px",
-  backgroundColor: "inherit",
-};
 
 export default Comments;

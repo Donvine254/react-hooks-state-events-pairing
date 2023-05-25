@@ -25,10 +25,10 @@ function Video({ video }) {
       <p>
         {video.views.toLocaleString()} views | uploaded {video.createdAt}
       </p>
-      <button id="likes" onClick={handleLikes} style={buttonStyle}>
+      <button id="likes" onClick={handleLikes}>
         {likes} 👍
       </button>
-      <button id="dislikes" onClick={handleDislikes} style={buttonStyle}>
+      <button id="dislikes" onClick={handleDislikes}>
         {dislikes} 👎
       </button>
       <br></br>
@@ -36,13 +36,5 @@ function Video({ video }) {
     </>
   );
 }
-export const buttonStyle = {
-  padding: "5px",
-  backgroundColor: "#3c8dcf",
-  margin: "10px",
-  color: "white",
-  fontSize: "24px",
-  border:"none",
-};
 
 export default Video;
