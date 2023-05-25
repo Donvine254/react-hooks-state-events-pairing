@@ -9,13 +9,13 @@ const video = {
   comments: [
     {
       id: 1,
-      user: "duanebot",
-      comment: "first!",
+      user: "Don the Handsome Boy",
+      comment: "This video is really detailed and as a beginner i have learned a lot.Thanks!",
     },
     {
       id: 2,
-      user: "gaeron",
-      comment: "What a great tutorial!",
+      user: "The Mandalorian",
+      comment: "Wow, What a great tutorial! I am beyond impressed to learn",
     },
   ],
 };
